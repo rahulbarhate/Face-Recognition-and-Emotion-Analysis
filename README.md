@@ -6,41 +6,44 @@
 
 **Object Recognition** can be found [here](https://github.com/devicehive/devicehive-video-analysis).
 
+---
 
-webapp.py : This is the home page of the web application.
+## **`webapp.py`**: Home page of the web application.
 
+### Functionality:
 
+1) ***Browse button*** - Button to select a video file (of any given format) from the local file system for processing it (creating the metadata).
 
-Functionality:
-1) Browse button - Button to select a video file (of any given format) from the local file system for processing it (creating the metadata).
-
-2) Send - After the click of this button, the chosen video files (one or many) are sent for processing ( creating the metadata).
+2) ***Send*** - After the click of this button, the chosen video files (one or many) are sent for processing ( creating the metadata).
 
 After processing of the video, the metadata is created is stored in the database (named as ‘DB’). 
-This database has two tables namely: 
-‘Actor’ : Which stores:
-Frame no
-Actor name
-Emotion Name
-Emotion Confidence
-Thumbnail
-Co-ordinates
+This database has two tables namely:
 
-‘Object’ : Which stores:
-Frame no
-Object name
-Object Confidence
+1) **‘Actor’** : Which stores:
+
+    - Frame no
+    - Actor name
+    - Emotion Name
+    - Emotion Confidence
+    - Thumbnail
+    - Co-ordinates
+
+2) **‘Object’** : Which stores:
+	
+    - Frame no
+    - Object name
+    - Object Confidence
 
 
 
-3) Search - Used for querying over a particular video file. A query may consists of any or all of the possible combination from an actor name, object name and emotion name.
+3) ***Search*** - Used for querying over a particular video file. A query may consists of any or all of the possible combination from an actor name, object name and emotion name.
 A query is performed on the database to retrieve all the frames whose data matches with the given search query. The results along with the frames and their corresponding details are displayed on a separate page as shown in the image.
 
-4) Clear - Clears the text query from the search box.
+4) ***Clear*** - Clears the text query from the search box.
 
 
 
-Workflow for the processing of videos, creation of metadata, storage in the database:
+## Workflow for the processing of videos, creation of metadata, storage in the database:
     
 1) upload function in webapp.py:
 
