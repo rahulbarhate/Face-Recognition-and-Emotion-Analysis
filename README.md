@@ -12,12 +12,14 @@
 
 ### Functionality:
 
-1) ***Browse button*** - Button to select a video file (of any given format) from the local file system for processing it (creating the metadata).
+1) ***Browse button***:
 
-2) ***Send*** - After the click of this button, the chosen video files (one or many) are sent for processing ( creating the metadata).
+- Button to select a video file (of any given format) from the local file system for processing it (creating the metadata).
 
-After processing of the video, the metadata is created is stored in the database (named as ‘DB’). 
-This database has two tables namely:
+2) ***Send***:
+- After the click of this button, the chosen video files (one or many) are sent for processing ( creating the metadata).
+- After processing of the video, the metadata is created is stored in the database (named as ‘DB’). 
+- This database has two tables namely:
 
 1) **‘Actor’**
 
@@ -31,6 +33,7 @@ This table stores:
 	6. Co-ordinates
 
 2) **‘Object’**
+
 This table stores:
 	
 	1. Frame no
@@ -39,11 +42,16 @@ This table stores:
 
 
 
-3) ***Search*** - Used for querying over a particular video file. A query may consists of any or all of the possible combination from an actor name, object name and emotion name.
-A query is performed on the database to retrieve all the frames whose data matches with the given search query. The results along with the frames and their corresponding details are displayed on a separate page as shown in the image.
+3) ***Search***:
 
-4) ***Clear*** - Clears the text query from the search box.
+- Used for querying over a particular video file. 
+- A query may consists of any or all of the possible combination from an actor name, object name and emotion name.
+- A query is performed on the database to retrieve all the frames whose data matches with the given search query. 
+- The results along with the frames and their corresponding details are displayed on a separate page as shown in the image.
 
+4) ***Clear***
+
+- Clears the text query from the search box.
 
 
 ## Workflow for the processing of videos, creation of metadata, storage in the database:
