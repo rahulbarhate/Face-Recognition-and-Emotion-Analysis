@@ -19,20 +19,23 @@
 After processing of the video, the metadata is created is stored in the database (named as ‘DB’). 
 This database has two tables namely:
 
-1) **‘Actor’** : Which stores:
+1) **‘Actor’**
 
-    - Frame no
-    - Actor name
-    - Emotion Name
-    - Emotion Confidence
-    - Thumbnail
-    - Co-ordinates
+This table stores:
 
-2) **‘Object’** : Which stores:
+	1. Frame no
+	2. Actor name
+	3. Emotion Name
+	4. Emotion Confidence
+	5. Thumbnail
+	6. Co-ordinates
+
+2) **‘Object’**
+This table stores:
 	
-    - Frame no
-    - Object name
-    - Object Confidence
+	1. Frame no
+	2. Object name
+	3. Object Confidence
 
 
 
