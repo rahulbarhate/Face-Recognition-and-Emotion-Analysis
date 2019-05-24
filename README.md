@@ -1,10 +1,10 @@
 # Face-Recognition-and-Emotion-Analysis
 
-Emoion Object can be found [here](https://github.com/oarriaga/face_classification).
+**Emotion Object** can be found [here](https://github.com/oarriaga/face_classification).
 
-Face Recognition can be found [here](https://github.com/ageitgey/face_recognition).
+**Face Recognition** can be found [here](https://github.com/ageitgey/face_recognition).
 
-Object Recognition can be found [here](https://github.com/devicehive/devicehive-video-analysis).
+**Object Recognition** can be found [here](https://github.com/devicehive/devicehive-video-analysis).
 
 
 webapp.py : This is the home page of the web application.
@@ -73,8 +73,9 @@ In this way, the complete video is traversed twice, one for obtaining the actor 
 
 4)Search function in Webapp.py:
     The objective of this function is to perform a query on the database to retrieve all the frames whose data matches with the given search query. The first word in the search query corresponds to the Actor name, second one corresponds to the emotion and the third one corresponds to the object that the users wants in the frames. We have the updated database classes - Actor, Object. The full query is taken in a variable ‘Query’. It is then split into words which is of a specific format as mentioned above. 
+    
     Query[0] - Actor name
-Query[1] - Emotion name
+    Query[1] - Emotion name
     Query[2] - Object name
 
 ‘resultt’ is a variable which stores all the required data entries after querying the database according to the input provided. 
@@ -99,22 +100,25 @@ Create a folder with the name of the Class Name and paste the new training image
 Now run the python file train_on_actors.py and the training will start and the details will be shown on the CMI. The new model file can be changing the name in the python script. 
 
 
-Current Scenario :
-	After the search query is run, we get the results in the form of frame numbers. These frame numbers are to be processed to get the respective start and the end time. The search input should only be any of the below given forms: 
+### Current Scenario:
+
+After the search query is run, we get the results in the form of frame numbers. These frame numbers are to be processed to get the respective start and the end time. The search input should only be any of the below given forms: 
+
 	1.Actor_name
 	2.Actor_name <space> Emotion
 	3.Actor_name <space> Emotion <space> Object_name 
+	
 Separate Database files are maintained to store the information of all the frames.
 After the training face recognition models, the corresponding models are saved and can be used as and when needed. 
 The results page contains the details of every result frame like face, its emotion and the objects detected.
 Every result frame has a default image thumbnail which needs to be dynamic according to  the frames present. 
 
 
-Areas that need assistance :
+### Areas that need assistance:
 
-1)UI/UX - Integrating a video player that will play video after any individual result is selected. Before that, instead of all the contiguous frame numbers, just the starting and the ending time of a contiguous set of frame numbers should be found. Thus each contiguous set of frame numbers will correspond to a result video. 
+1.) UI/UX - Integrating a video player that will play video after any individual result is selected. Before that, instead of all the contiguous frame numbers, just the starting and the ending time of a contiguous set of frame numbers should be found. Thus each contiguous set of frame numbers will correspond to a result video. 
 
-2)Each result thumbnail is a default image which should be dynamic according to the result frames.
+2.) Each result thumbnail is a default image which should be dynamic according to the result frames.
 
     
 
