@@ -56,15 +56,48 @@ This table stores:
 
 ## Workflow for the processing of videos, creation of metadata, storage in the database:
     
-1) upload function in webapp.py:
+1) ***upload function*** in **webapp.py**:
 
-This function enables the user to select a video from his machine (any format) and the path is stored in the ‘destination’ variable.
+- Function that enables the user to select a video from his local machine (any format).
+- The path of this video is stored in the ‘*destination*’ variable.
 
-This function calls another python file - video_emotion_color_demo.py
+This function calls another python file - '*video_emotion_color_demo.py*'
 
-Another variable ‘comm’ is created which consists of the call to the python file ‘video_emotion_color_demo.py’ and its argument, ‘destination’.
-comm="python video_emotion_color_demo.py '"+destination+"'"
-Then subprocess class is used to perform the required call.
+A variable ‘*comm*’ is created which consists of the call to the python file ‘video_emotion_color_demo.py’ and its argument, ‘destination’.
+
+> comm="python video_emotion_color_demo.py '"+destination+"'"
+
+Then a subprocess class is used to perform the required call.
+
+2) ***search function*** in **webapp.py**:
+
+- The objective of this function is to perform a query on the database to retrieve all the frames whose data matches with the given search query. 
+- The first word in the search query corresponds to the Actor name, second one corresponds to the emotion and the third one corresponds to the object that the users wants in the frames. 
+- We have the updated database classes - Actor, Object. 
+- The full query is taken in a variable ‘Query’. 
+- It is then split into words which is of a specific format as mentioned above. 
+ 
+ ```
+    Query[0] - Actor name
+    Query[1] - Emotion name
+    Query[2] - Object name
+    
+```
+
+‘resultt’ is a variable which stores all the required data entries after querying the database according to the input provided. 
+
+If the input is only an Actor name then result is stored with all the entries having actorname as the given name.
+resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).all())
+
+
+If the input contains Actor name with a specific emotion then the result is stored by querying the database with 2 filters one for the actor name and one for the emotion that has been entered.
+resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).filter(Actor.emotionname==Query[1]).all())    
+
+If the input contains Actor name, emotion and an object, then the result is stored with all the details of frames which contain Actor name, emotion and object with one more filter that ensures that the frames from the two classes are the same. Following is the query used:
+resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).filter(Actor.emotionname==Query[1]).filter(Object.objectname==Query[2]).filter(Actor.frameno==Object.frameno).all()) 
+
+The result variable along with its length is rendered to another html page - “input.html”.
+In this page, for every result entry, Frame number, Actor name,  Emotion and Object recognized is shown along with a static image.
 
 2)process function in video_emotion_color_demo.py:
     The function takes parameter ‘paath’ which is the address of the video file. Here the video file is processed frame by frame for the different class labels(frame_no,actorname, emotion name, emotion probability, image_file(thumbnail of the frame),coordinates of the face detected) and a table named ‘Actor’ is created which contains all this data.
@@ -85,27 +118,7 @@ b)A separate row is created in the table ‘Object’ and all this data is store
 
 In this way, the complete video is traversed twice, one for obtaining the actor name and emotion name and the other for obtaining the object name. This has been done because there must be frames in the video that contain objects but does not contain any faces. The same frame in two different tables ‘Actor’ & ‘Object’ are joined together using the attribute ‘frame_no’.
 
-4)Search function in Webapp.py:
-    The objective of this function is to perform a query on the database to retrieve all the frames whose data matches with the given search query. The first word in the search query corresponds to the Actor name, second one corresponds to the emotion and the third one corresponds to the object that the users wants in the frames. We have the updated database classes - Actor, Object. The full query is taken in a variable ‘Query’. It is then split into words which is of a specific format as mentioned above. 
-    
-    Query[0] - Actor name
-    Query[1] - Emotion name
-    Query[2] - Object name
 
-‘resultt’ is a variable which stores all the required data entries after querying the database according to the input provided. 
-
-If the input is only an Actor name then result is stored with all the entries having actorname as the given name.
-resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).all())
-
-
-If the input contains Actor name with a specific emotion then the result is stored by querying the database with 2 filters one for the actor name and one for the emotion that has been entered.
-resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).filter(Actor.emotionname==Query[1]).all())    
-
-If the input contains Actor name, emotion and an object, then the result is stored with all the details of frames which contain Actor name, emotion and object with one more filter that ensures that the frames from the two classes are the same. Following is the query used:
-resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).filter(Actor.emotionname==Query[1]).filter(Object.objectname==Query[2]).filter(Actor.frameno==Object.frameno).all()) 
-
-The result variable along with its length is rendered to another html page - “input.html”.
-In this page, for every result entry, Frame number, Actor name,  Emotion and Object recognized is shown along with a static image.
 
  5) train_on_actors.py :
     This is the Face recognition model training utility program.
