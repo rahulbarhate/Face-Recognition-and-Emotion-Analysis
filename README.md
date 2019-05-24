@@ -60,14 +60,13 @@ This table stores:
 
 - Function that enables the user to select a video from his local machine (any format).
 - The path of this video is stored in the ‘*destination*’ variable.
+- This function calls another python file - > '*video_emotion_color_demo.py*'
 
-This function calls another python file - '*video_emotion_color_demo.py*'
-
-A variable ‘*comm*’ is created which consists of the call to the python file ‘video_emotion_color_demo.py’ and its argument, ‘destination’.
+- A variable ‘*comm*’ is created which consists of the call to the python file ‘video_emotion_color_demo.py’ and its argument, ‘destination’.
 
 > comm="python video_emotion_color_demo.py '"+destination+"'"
 
-Then a subprocess class is used to perform the required call.
+- A subprocess class isthen used to perform the required call.
 
 2) ***search function*** in **webapp.py**:
 
@@ -84,7 +83,7 @@ Then a subprocess class is used to perform the required call.
     
 ```
 
-‘resultt’ is a variable which stores all the required data entries after querying the database according to the input provided. 
+- ‘***resultt***’ is a variable which stores all the required data entries after querying the database according to the input provided. 
 
 If the input is only an Actor name then result is stored with all the entries having actorname as the given name.
 resultt=(db.session.query(Actor,Object).filter(Actor.actorname==Query[0]).all())
