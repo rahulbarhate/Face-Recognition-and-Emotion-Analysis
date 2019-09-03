@@ -6,6 +6,21 @@
 
 **Object Recognition** can be found [here](https://github.com/devicehive/devicehive-video-analysis).
 
+Large files to be downloaded from [here](https://drive.google.com/drive/folders/1-FDO9LFhEwWAS5pStcRACW9gYuXlB0jA).
+
+1.) Create a folder in src named 'data' and a folder in data named 'yolo'
+
+2.) Copy the files from the above link in the folder 'yolo'
+
+Structure:
+- src
+  - data
+    - yolo
+    - yolo_model.ckpt.data-00000-of-00001
+    - yolo_model.ckpt.index
+    - yolo_model.ckpt.meta
+    - yolo2.names
+
 ---
 
 ## **`webapp.py`**: Home page of the web application.
