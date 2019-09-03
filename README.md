@@ -137,9 +137,11 @@ In this way, the complete video is traversed twice, one for obtaining the actor 
 
 - This is the Face recognition model training utility program.
 
-Go to the path -   src → knn_examples → train
-Create a folder with the name of the Class Name and paste the new training images in that folder. If the Class does not exist then make a new directory with the name of the Class and paste the training images in that folder.
-Now run the python file train_on_actors.py and the training will start and the details will be shown on the CMI. The new model file can be changing the name in the python script. 
+- Go to the path -   src → knn_examples → train
+- Create a folder with the name of the Class Name and paste the new training images in that folder. 
+- - If the Class does not exist then make a new directory with the name of the Class and paste the training images in that folder.
+- - Now run the python file train_on_actors.py and the training will start and the details will be shown on the CMD. 
+- The new model file can be changing the name in the python script. 
 
 
 ### Current Scenario:
@@ -150,15 +152,15 @@ After the search query is run, we get the results in the form of frame numbers. 
 	2.Actor_name <space> Emotion
 	3.Actor_name <space> Emotion <space> Object_name 
 	
-Separate Database files are maintained to store the information of all the frames.
-After the training face recognition models, the corresponding models are saved and can be used as and when needed. 
-The results page contains the details of every result frame like face, its emotion and the objects detected.
-Every result frame has a default image thumbnail which needs to be dynamic according to  the frames present. 
+- Separate Database files are maintained to store the information of all the frames.
+- After the training face recognition models, the corresponding models are saved and can be used as and when needed. 
+- The results page contains the details of every result frame like face, its emotion and the objects detected.
+- Every result frame has a default image thumbnail which needs to be dynamic according to  the frames present. 
 
 
 ### Areas that need assistance:
 
-1.) UI/UX - Integrating a video player that will play video after any individual result is selected. Before that, instead of all the contiguous frame numbers, just the starting and the ending time of a contiguous set of frame numbers should be found. Thus each contiguous set of frame numbers will correspond to a result video. 
+1.) *UI/UX* - Integrating a video player that will play video after any individual result is selected. Before that, instead of all the contiguous frame numbers, just the starting and the ending time of a contiguous set of frame numbers should be found. Thus each contiguous set of frame numbers will correspond to a result video. 
 
 2.) Each result thumbnail is a default image which should be dynamic according to the result frames.
 
