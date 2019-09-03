@@ -179,5 +179,14 @@ After the search query is run, we get the results in the form of frame numbers. 
 
 2.) Each result thumbnail is a default image which should be dynamic according to the result frames.
 
-    
+### Screenshots of the UI:
+
+1. Homepage
+![Homepage](images/HOME_PAGE.jpeg)
+
+2. Browse and upload videos
+![BrowseVideo](/images/BROWSE_VIDEO.jpeg )
+
+3. Result Page
+![ResultsPage](images/RESULT_PAGE.jpeg)
 
