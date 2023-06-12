@@ -190,3 +190,20 @@ After the search query is run, we get the results in the form of frame numbers. 
 3. Result Page
 ![ResultsPage](images/RESULT_PAGE.jpeg)
 
+
+Current Scenario :
+	After the search query is run, we get the results in the form of frame numbers. These frame numbers are to be processed to get the respective start and the end time. The search input should only be any of the below given forms: 
+	1.Actor_name
+	2.Actor_name <space> Emotion
+	3.Actor_name <space> Emotion <space> Object_name 
+Separate Database files are maintained to store the information of all the frames.
+After the training face recognition models, the corresponding models are saved and can be used as and when needed. 
+The results page contains the details of every result frame like face, its emotion and the objects detected.
+Every result frame has a default image thumbnail which needs to be dynamic according to  the frames present. 
+
+
+Areas that need assistance :
+
+1)UI/UX - Integrating a video player that will play video after any individual result is selected. Before that, instead of all the contiguous frame numbers, just the starting and the ending time of a contiguous set of frame numbers should be found. Thus each contiguous set of frame numbers will correspond to a result video. 
+
+2)Each result thumbnail is a default image which should be dynamic according to the result frames.
